@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbrahs Kitchen - Contact & Location</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #1a1a1a; color: #f0f0f0; }
+        header { background-color: #000; padding: 1.5rem; text-align: center; border-bottom: 4px solid #e67e22; }
+        header h1 { margin: 0; color: #e67e22; text-transform: uppercase; }
+        nav { background-color: #111; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; }
+        nav a { color: #fff; text-decoration: none; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #e67e22; }
+        
+        main { padding: 2rem 1rem; max-width: 900px; margin: auto; }
+        h2 { color: #e67e22; text-transform: uppercase; border-bottom: 2px solid #e67e22; padding-bottom: 10px; display: inline-block; }
+        
+        .contact-info { background: #222; padding: 2rem; border-radius: 10px; border: 1px solid #333; margin-bottom: 2rem; }
+        .contact-info p { margin: 10px 0; }
+        .contact-info strong { color: #e67e22; }
+        .contact-info a { color: #fff; text-decoration: none; }
+        .contact-info a:hover { color: #e67e22; }
+
+        .map-container { position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 10px; border: 2px solid #333; }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        .order-btn { display: inline-block; background-color: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; transition: background 0.3s; }
+        .order-btn:hover { background-color: #128C7E; }
+
+        footer { background-color: #000; color: #888; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 4px solid #e67e22; }
+        footer a { color: #e67e22; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="Screenshot 2026-09-09 180137.png" alt="Barbrahs Kitchen Logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid #e67e22; margin-bottom: 10px; background-color: #000;">
+     <h1>Barbrahs Kitchen</h1>
+    <p>Find Us & Contact Us</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a> |
+    <a href="menu.html">Menu</a> |
+    <a href="about.html">About Us</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+        <p>Have a question about our menu or want to place an order? We would love to hear from you.</p>
+        <p><strong>Phone / WhatsApp:</strong> <a href="tel:0712823848">071 282 3848</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@barbrahskitchen.co.za">info@barbrahskitchen.co.za</a></p>
+        <p><strong>Address:</strong> Visagie Street, Kortze and M3 Street</p>
+        <p><strong>Opening Hours:</strong> Monday - Saturday (08:00 - 18:00)</p>
+        
+        <a href="https://wa.me/27712823848?text=Hi%20Barbrahs%20Kitchen,%20I%20would%20like%20to%20place%20an%20order" class="order-btn" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <h2>Our Location</h2>
+    <p>Come visit us! We are located at Visagie Street, Kortze and M3 Street.</p>
+    
+    <div class="map-container">
+        <!-- 🚨 REPLACE THE SRC URL BELOW WITH YOUR OWN GOOGLE MAPS EMBED CODE FOR VISAGIE STREET -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.336587071065!2d28.04730531502697!3d-26.20410288346545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ea4c6d3d56b%3A0x6b8b8b8b8b8b8b8b!2sJohannesburg%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1620000000000!5m2!1sen!2sza" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Barbrahs Kitchen.</p>
+</footer>
+
+</body>
+</html>

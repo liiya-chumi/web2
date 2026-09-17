@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbrahs Kitchen - Kota Menu</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #1a1a1a; color: #f0f0f0; }
+        header { background-color: #000; padding: 1.5rem; text-align: center; border-bottom: 4px solid #e67e22; }
+        header h1 { margin: 0; color: #e67e22; text-transform: uppercase; letter-spacing: 2px; }
+        header p { margin: 0.5rem 0; color: #ccc; }
+        
+        nav { background-color: #111; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; }
+        nav a { color: #fff; text-decoration: none; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #e67e22; }
+        
+        main { padding: 2rem 1rem; max-width: 800px; margin: auto; }
+
+        /* MENU LIST STYLES (Like the poster) */
+        .menu-header { text-align: center; margin-bottom: 2rem; }
+        .menu-header h2 { color: #e67e22; font-size: 2.5em; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .menu-header p { color: #aaa; font-style: italic; }
+
+        .menu-list { list-style: none; padding: 0; }
+        .menu-item { 
+            background: #222; 
+            border-left: 5px solid #e67e22; 
+            padding: 1.5rem; 
+            margin-bottom: 1rem; 
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s;
+        }
+        .menu-item:hover { background: #2a2a2a; }
+        
+        .item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .item-name { font-size: 1.3em; font-weight: bold; color: #fff; margin: 0; }
+        .item-price { font-size: 1.4em; font-weight: bold; color: #e67e22; margin: 0; }
+        .item-desc { color: #bbb; font-size: 1em; margin: 0; }
+
+        /* ORDER BUTTON */
+        .order-btn { display: inline-block; background-color: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.2em; margin-top: 20px; text-align: center; width: 100%; box-sizing: border-box; transition: background 0.3s; }
+        .order-btn:hover { background-color: #128C7E; }
+
+        footer { background-color: #000; color: #888; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 4px solid #e67e22; }
+        footer a { color: #e67e22; }
+    </style>
+</head>
+<body>
+
+    <header>
+       <img src="Screenshot 2026-09-09 180137.png" alt="Barbrahs Kitchen Logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 4px solid #e67e22; margin-bottom: 10px; background-color: #000;">
+       <h1>Barbrahs Kitchen</h1>
+        <p>Kota (Spatlo) Menu & Price List</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="menu.html">Menu</a> |
+        <a href="about.html">About Us</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <div class="menu-header">
+            <h2>Our Delicious Kotas</h2>
+            <p>All Kotas are served with Chips, Atchaar, Polony, and Cucumber.</p>
+        </div>
+
+        <ul class="menu-list">
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Classic Kota</h3>
+                    <span class="item-price">R 18</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber.</p>
+            </li>
+
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Egg or Vienna Kota</h3>
+                    <span class="item-price">R 22</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Egg or Vienna.</p>
+            </li>
+
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Cheese & Vienna Kota</h3>
+                    <span class="item-price">R 25</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Vienna.</p>
+            </li>
+
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Cheese, Egg & Vienna Kota</h3>
+                    <span class="item-price">R 30</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna.</p>
+            </li>
+
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Russian Kota</h3>
+                    <span class="item-price">R 35</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Russian.</p>
+            </li>
+
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Vienna & Russian Kota</h3>
+                    <span class="item-price">R 45</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna, Russian.</p>
+            </li>
+
+            <li class="menu-item">
+                <div class="item-header">
+                    <h3 class="item-name">Barbrahs Special (Party Burger)</h3>
+                    <span class="item-price">R 60</span>
+                </div>
+                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna, Russian, Party Burger.</p>
+            </li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <h2 style="color: #e67e22; text-transform: uppercase;">Place Your Order</h2>
+            <p>Ready to eat? Call or WhatsApp us to place your order!</p>
+            <p><strong>Phone/WhatsApp:</strong> <a href="tel:0712823848" style="color: #e67e22; font-size: 1.2em;">071 282 3848</a></p>
+            <a href="https://wa.me/27712823848?text=Hi%20Barbrahs%20Kitchen,%20I%20would%20like%20to%20place%20an%20order" class="order-btn" target="_blank">Order via WhatsApp</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Barbrahs Kitchen. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
