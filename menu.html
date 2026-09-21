@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,7 @@
     <title>Barbrahs Kitchen - Kota Menu</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -17,14 +15,12 @@
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
         }
-
         header {
             background-color: #000;
             padding: 1.5rem 1rem;
             text-align: center;
             border-bottom: 4px solid #e67e22;
         }
-
         header h1 {
             margin: 0;
             color: #e67e22;
@@ -32,13 +28,11 @@
             letter-spacing: 2px;
             font-size: clamp(1.6rem, 6vw, 2.5em);
         }
-
         header p {
             margin: 0.5rem 0 0;
             color: #ccc;
             font-size: clamp(0.9rem, 3.5vw, 1.1em);
         }
-
         nav {
             background-color: #111;
             padding: 0.8rem 0.5rem;
@@ -52,7 +46,6 @@
             justify-content: center;
             gap: 0.2rem 0.5rem;
         }
-
         nav a {
             color: #fff;
             text-decoration: none;
@@ -63,41 +56,21 @@
             border-radius: 30px;
             transition: color 0.3s, background 0.3s;
         }
-
-        nav a:hover {
-            color: #e67e22;
-            background: #1f1f1f;
-        }
-
-        main {
-            padding: 1.5rem 1rem;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .menu-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
+        nav a:hover { color: #e67e22; background: #1f1f1f; }
+        main { padding: 1.5rem 1rem; max-width: 800px; margin: auto; }
+        .menu-header { text-align: center; margin-bottom: 2rem; }
         .menu-header h2 {
             color: #e67e22;
             font-size: clamp(1.6rem, 6vw, 2.5em);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
         }
-
         .menu-header p {
             color: #aaa;
             font-style: italic;
             font-size: clamp(0.9rem, 3.5vw, 1.1em);
         }
-
-        .menu-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        .menu-list { list-style: none; padding: 0; }
         .menu-item {
             background: #222;
             border-left: 5px solid #e67e22;
@@ -110,12 +83,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             animation: fadeUp 0.6s ease-out both;
         }
-
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(15px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
         .menu-item:nth-child(1) { animation-delay: 0.05s; }
         .menu-item:nth-child(2) { animation-delay: 0.10s; }
         .menu-item:nth-child(3) { animation-delay: 0.15s; }
@@ -123,13 +94,11 @@
         .menu-item:nth-child(5) { animation-delay: 0.25s; }
         .menu-item:nth-child(6) { animation-delay: 0.30s; }
         .menu-item:nth-child(7) { animation-delay: 0.35s; }
-
         .menu-item:hover {
             background: #2a2a2a;
             transform: translateX(5px);
             box-shadow: 0 4px 15px rgba(230, 126, 34, 0.15);
         }
-
         .item-header {
             display: flex;
             justify-content: space-between;
@@ -138,27 +107,23 @@
             flex-wrap: wrap;
             gap: 0.3rem;
         }
-
         .item-name {
             font-size: clamp(1.1rem, 4.5vw, 1.3em);
             font-weight: bold;
             color: #fff;
             margin: 0;
         }
-
         .item-price {
             font-size: clamp(1.2rem, 5vw, 1.4em);
             font-weight: bold;
             color: #e67e22;
             margin: 0;
         }
-
         .item-desc {
             color: #bbb;
             font-size: clamp(0.9rem, 3.5vw, 1em);
             margin: 0;
         }
-
         .order-btn {
             display: inline-block;
             background-color: #25D366;
@@ -175,17 +140,12 @@
             transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-
         .order-btn:hover {
             background-color: #128C7E;
             transform: translateY(-2px);
             box-shadow: 0 8px 18px rgba(0,0,0,0.4);
         }
-
-        .order-btn:active {
-            transform: translateY(1px);
-        }
-
+        .order-btn:active { transform: translateY(1px); }
         footer {
             background-color: #000;
             color: #888;
@@ -194,33 +154,19 @@
             margin-top: 3rem;
             border-top: 4px solid #e67e22;
         }
-
-        footer a {
-            color: #e67e22;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
+        footer a { color: #e67e22; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
         @media (max-width: 600px) {
             header { padding: 1.2rem 0.8rem; }
             nav a { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
             .menu-item { padding: 1rem; }
             .item-header { flex-direction: column; align-items: flex-start; }
         }
-
         @media (max-width: 400px) {
             nav a { font-size: 0.7rem; padding: 0.3rem 0.5rem; }
             header h1 { font-size: 1.4rem; }
         }
-
-        a:focus-visible, button:focus-visible {
-            outline: 3px solid #e67e22;
-            outline-offset: 2px;
-        }
-
+        a:focus-visible { outline: 3px solid #e67e22; outline-offset: 2px; }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -232,104 +178,98 @@
 </head>
 <body>
 
-    <header>
-        <img src="Screenshot 2026-09-09 180137.png" alt="Barbrahs Kitchen Logo"
-             style="width: clamp(80px, 20vw, 100px); height: clamp(80px, 20vw, 100px);
-                    border-radius: 50%; object-fit: cover; border: 4px solid #e67e22;
-                    margin-bottom: 10px; background-color: #000;">
-        <h1>Barbrahs Kitchen</h1>
-        <p>Kota (Spatlo) Menu &amp; Price List</p>
-    </header>
+<header>
+    <img src="Screenshot 2026-09-09 180137.png" alt="Barbrahs Kitchen Logo"
+         style="width: clamp(80px, 20vw, 100px); height: clamp(80px, 20vw, 100px);
+                border-radius: 50%; object-fit: cover; border: 4px solid #e67e22;
+                margin-bottom: 10px; background-color: #000;">
+    <h1>Barbrahs Kitchen</h1>
+    <p>Kota (Spatlo) Menu &amp; Price List</p>
+</header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="about.html">About Us</a>
-        <a href="gallary.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="gallary.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-    <main>
-        <div class="menu-header">
-            <h2>Our Delicious Kotas</h2>
-            <p>All Kotas are served with Chips, Atchaar, Polony, and Cucumber.</p>
-        </div>
+<main>
+    <div class="menu-header">
+        <h2>Our Delicious Kotas</h2>
+        <p>All Kotas are served with Chips, Atchaar, Polony, and Cucumber.</p>
+    </div>
 
-        <ul class="menu-list">
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Classic Kota</h3>
-                    <span class="item-price">R 18</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber.</p>
-            </li>
+    <ul class="menu-list">
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Classic Kota</h3>
+                <span class="item-price">R 18</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber.</p>
+        </li>
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Egg or Vienna Kota</h3>
+                <span class="item-price">R 22</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Egg or Vienna.</p>
+        </li>
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Cheese &amp; Vienna Kota</h3>
+                <span class="item-price">R 25</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Vienna.</p>
+        </li>
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Cheese, Egg &amp; Vienna Kota</h3>
+                <span class="item-price">R 30</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna.</p>
+        </li>
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Russian Kota</h3>
+                <span class="item-price">R 35</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Russian.</p>
+        </li>
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Vienna &amp; Russian Kota</h3>
+                <span class="item-price">R 45</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna, Russian.</p>
+        </li>
+        <li class="menu-item">
+            <div class="item-header">
+                <h3 class="item-name">Barbrahs Special (Party Burger)</h3>
+                <span class="item-price">R 60</span>
+            </div>
+            <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna, Russian, Party Burger.</p>
+        </li>
+    </ul>
 
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Egg or Vienna Kota</h3>
-                    <span class="item-price">R 22</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Egg or Vienna.</p>
-            </li>
+    <div style="text-align: center; margin-top: 3rem;">
+        <h2 style="color: #e67e22; text-transform: uppercase; font-size: clamp(1.4rem, 5vw, 1.8rem);">Place Your Order</h2>
+        <p style="font-size: clamp(1rem, 4vw, 1.1rem);">Ready to eat? Call or WhatsApp us to place your order!</p>
+        <p style="font-size: clamp(1rem, 4vw, 1.1rem);">
+            <strong>Phone/WhatsApp:</strong>
+            <a href="tel:0712823848" style="color: #e67e22; font-size: 1.2em;">071 282 3848</a>
+        </p>
+        <a href="https://wa.me/27712823848?text=Hi%20Barbrahs%20Kitchen,%20I%20would%20like%20to%20place%20an%20order"
+           class="order-btn" target="_blank" rel="noopener noreferrer">
+           Order via WhatsApp
+        </a>
+    </div>
+</main>
 
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Cheese &amp; Vienna Kota</h3>
-                    <span class="item-price">R 25</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Vienna.</p>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Cheese, Egg &amp; Vienna Kota</h3>
-                    <span class="item-price">R 30</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna.</p>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Russian Kota</h3>
-                    <span class="item-price">R 35</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Russian.</p>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Vienna &amp; Russian Kota</h3>
-                    <span class="item-price">R 45</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna, Russian.</p>
-            </li>
-
-            <li class="menu-item">
-                <div class="item-header">
-                    <h3 class="item-name">Barbrahs Special (Party Burger)</h3>
-                    <span class="item-price">R 60</span>
-                </div>
-                <p class="item-desc">Chips, Atchaar, Polony, Cucumber, Cheese, Egg, Vienna, Russian, Party Burger.</p>
-            </li>
-        </ul>
-
-        <div style="text-align: center; margin-top: 3rem;">
-            <h2 style="color: #e67e22; text-transform: uppercase; font-size: clamp(1.4rem, 5vw, 1.8rem);">Place Your Order</h2>
-            <p style="font-size: clamp(1rem, 4vw, 1.1rem);">Ready to eat? Call or WhatsApp us to place your order!</p>
-            <p style="font-size: clamp(1rem, 4vw, 1.1rem);">
-                <strong>Phone/WhatsApp:</strong>
-                <a href="tel:0712823848" style="color: #e67e22; font-size: 1.2em;">071 282 3848</a>
-            </p>
-            <a href="https://wa.me/27712823848?text=Hi%20Barbrahs%20Kitchen,%20I%20would%20like%20to%20place%20an%20order"
-               class="order-btn" target="_blank" rel="noopener noreferrer">
-               Order via WhatsApp
-            </a>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Barbrahs Kitchen. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2026 Barbrahs Kitchen. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
