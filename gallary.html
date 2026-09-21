@@ -2,93 +2,409 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbrahs Kitchen - Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Barbrahs Kitchen – Gallery</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #1a1a1a; color: #f0f0f0; }
-        header { background-color: #000; padding: 1.5rem; text-align: center; border-bottom: 4px solid #e67e22; }
-        header h1 { margin: 0; color: #e67e22; text-transform: uppercase; }
-        
-        /* CIRCLE LOGO STYLE */
+        /* ===== RESET & GLOBAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #000;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid #e67e22;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #e67e22;
+            text-transform: uppercase;
+            font-size: clamp(1.6rem, 6vw, 2.8rem);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            color: #ccc;
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        }
+
         .logo-circle {
-            width: 120px;
-            height: 120px;
+            width: clamp(80px, 20vw, 130px);
+            height: clamp(80px, 20vw, 130px);
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #e67e22;
             margin-bottom: 10px;
             background-color: #000;
+            transition: transform 0.3s ease;
         }
 
-        nav { background-color: #111; padding: 1rem; text-align: center; border-bottom: 1px solid #333; }
-        nav a { color: #fff; text-decoration: none; padding: 0.5rem 1rem; display: inline-block; font-weight: bold; }
-        nav a:hover { color: #e67e22; }
-        main { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
-        h2 { color: #e67e22; text-align: center; text-transform: uppercase; margin-bottom: 2rem; }
-        
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; border: 2px solid #333; cursor: pointer; transition: transform 0.3s, border-color 0.3s; }
-        .gallery img:hover { transform: scale(1.03); border-color: #e67e22; }
-        
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
-        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; border: 3px solid #e67e22; }
-        
-        footer { background-color: #000; color: #888; text-align: center; padding: 2rem; margin-top: 3rem; border-top: 4px solid #e67e22; }
-        footer a { color: #e67e22; }
+        .logo-circle:hover {
+            transform: scale(1.02);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background-color: #111;
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.2rem 0.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            font-weight: bold;
+            font-size: clamp(0.85rem, 3.5vw, 1.1em);
+            border-radius: 30px;
+            transition: color 0.3s, background 0.3s;
+        }
+
+        nav a:hover {
+            color: #e67e22;
+            background: #1f1f1f;
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            padding: 1.5rem 1rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #e67e22;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-size: clamp(1.4rem, 5vw, 2rem);
+        }
+
+        /* ===== GALLERY GRID ===== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #333;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+            border-color: #e67e22;
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .gallery img:active {
+            transform: scale(0.99);
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            border-radius: 12px;
+            border: 3px solid #e67e22;
+            box-shadow: 0 0 40px rgba(230, 126, 34, 0.5);
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .lightbox img:hover {
+            transform: scale(1.01);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #000;
+            color: #888;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            border-top: 4px solid #e67e22;
+        }
+
+        footer a {
+            color: #e67e22;
+            text-decoration: none;
+            padding: 0.3rem;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer nav {
+            position: static;
+            background: transparent;
+            border: none;
+            padding: 0.5rem 0;
+            gap: 0.2rem 0.3rem;
+        }
+
+        footer nav a {
+            font-size: clamp(0.8rem, 3vw, 1rem);
+        }
+
+        /* ===== RESPONSIVE TWEAKS ===== */
+        @media (max-width: 600px) {
+            header {
+                padding: 1.2rem 0.8rem;
+            }
+
+            nav {
+                padding: 0.6rem 0.3rem;
+                gap: 0.1rem 0.3rem;
+            }
+
+            nav a {
+                padding: 0.4rem 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .gallery img {
+                height: 220px;
+            }
+
+            footer nav a {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.4rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo-circle {
+                width: 70px;
+                height: 70px;
+            }
+
+            nav a {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .gallery img {
+                height: 180px;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        a:focus-visible,
+        img:focus-visible {
+            outline: 3px solid #e67e22;
+            outline-offset: 2px;
+        }
+
+        /* ===== TOUCH FEEDBACK ===== */
+        .gallery img {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <!-- Logo is now a circle -->
-    <img src="Screenshot 2026-09-09 180137.png" alt="Barbrahs Kitchen Logo" class="logo-circle">
-    <h1>Barbrahs Kitchen</h1>
-    <p>Our Gallery</p>
-</header>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <img src="Screenshot 2026-09-09 180137.png" alt="Barbrahs Kitchen Logo" class="logo-circle">
+        <h1>Barbrahs Kitchen</h1>
+        <p>Our Gallery</p>
+    </header>
 
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="menu.html">Menu</a> |
-    <a href="about.html">About Us</a> |
-    <a href="gallary.html">Gallery</a> |
-    <a href="contact.html">Contact</a>
-</nav>
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="gallary.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-<main>
-    <h2>Our Delicious Food</h2>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <h2>Our Delicious Food</h2>
 
-    <div class="gallery">
-        <!-- Using the actual food photos provided -->
-        <img src="food1.jpg" alt="Delicious Kota with Russian">
-        <img src="food2.jpg" alt="Delicious Kota with Vienna">
-    </div>
+        <!-- GALLERY GRID -->
+        <div class="gallery" id="gallery">
+            <img src="food1.jpg" alt="Delicious Kota with Russian" loading="lazy">
+            <img src="food2.jpg" alt="Delicious Kota with Vienna" loading="lazy">
+            <!-- Add more images here as they become available -->
+        </div>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <img src="" alt="Expanded view">
-    </div>
+        <!-- LIGHTBOX OVERLAY -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <img src="" alt="Expanded view" id="lightbox-img">
+        </div>
+    </main>
 
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <h2 style="color: #e67e22; margin-bottom: 0.5rem;">Barbrahs Kitchen</h2>
+        <p>Good Food. Good Memories.</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About Us</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p style="margin-top: 1rem;">&copy; 2026 Barbrahs Kitchen. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ===== INTERACTIVE JAVASCRIPT ===== -->
     <script>
-        const galleryImages = document.querySelectorAll('.gallery img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = lightbox.querySelector('img');
+        (function() {
+            'use strict';
 
-        galleryImages.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.style.display = 'flex';
-                lightboxImg.src = img.src;
+            // ===== LIGHTBOX FUNCTIONALITY =====
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+
+            // Make functions globally accessible for inline onclick
+            window.openLightbox = function(src) {
+                if (lightbox && lightboxImg) {
+                    lightbox.style.display = 'flex';
+                    lightboxImg.src = src;
+                    document.body.style.overflow = 'hidden'; // prevent background scroll
+                }
+            };
+
+            window.closeLightbox = function() {
+                if (lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = ''; // restore scroll
+                }
+            };
+
+            // ===== ATTACH CLICK HANDLERS TO GALLERY IMAGES =====
+            const galleryImages = document.querySelectorAll('.gallery img');
+            galleryImages.forEach(function(img) {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation(); // prevent event bubbling
+                    openLightbox(this.src);
+                });
+
+                // Touch feedback
+                img.addEventListener('touchstart', function() {
+                    this.style.transition = 'transform 0.1s';
+                    this.style.transform = 'scale(0.98)';
+                }, { passive: true });
+
+                img.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
             });
-        });
 
-        lightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
+            // ===== CLOSE LIGHTBOX WITH ESCAPE KEY =====
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox && lightbox.style.display === 'flex') {
+                    closeLightbox();
+                }
+            });
+
+            // ===== TOUCH DEVICE DETECTION =====
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                document.body.classList.add('touch-device');
+            }
+
+            // ===== SMOOTH SCROLL FOR INTERNAL LINKS =====
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ===== PRELOAD LIGHTBOX IMAGES (performance) =====
+            // This preloads the full-size images after the page loads
+            window.addEventListener('load', function() {
+                const images = document.querySelectorAll('.gallery img');
+                images.forEach(function(img) {
+                    const preloadImg = new Image();
+                    preloadImg.src = img.src;
+                });
+            });
+
+            // ===== ACTIVE NAV FEEDBACK =====
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(function(l) { l.classList.remove('active-nav'); });
+                    this.classList.add('active-nav');
+                });
+            });
+
+            console.log('Barbrahs Kitchen – gallery page ready.');
+        })();
     </script>
-</main>
-
-<footer>
-    <p>&copy; 2026 Barbrahs Kitchen.</p>
-</footer>
 
 </body>
 </html>
